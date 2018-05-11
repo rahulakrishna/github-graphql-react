@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { GET_USER_DETAILS } from '../mutations';
+import { GET_USER_DETAILS } from '../queries';
 import { withApollo } from 'react-apollo';
 
 import { fuzzypeacock, white } from '../utils/colors';

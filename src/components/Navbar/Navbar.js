@@ -5,7 +5,7 @@ import { robin, white } from '../../utils/colors';
 import { graphql, withApollo } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
-import { GET_USER_DETAILS } from '../../mutations';
+import { GET_USER_DETAILS } from '../../queries';
 
 const Bar = styled.div`
     width: 98%;

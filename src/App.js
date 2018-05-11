@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import User from "./components/User";
+import Repositories from "./components/Repositories";
 
 import { Switch,Route } from 'react-router-dom';
 
@@ -17,7 +18,9 @@ class App extends Component {
         <NavBar/>
         <Switch>
             <Route exact path='/login' component={Login} />
+
             <Route exact path='/user' component={User} />
+            <Route exact path='/repositories' component={Repositories}/>
         </Switch>
       </div>
     );

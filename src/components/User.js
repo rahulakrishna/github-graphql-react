@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { GET_USER_DETAILS } from '../mutations';
+import { GET_USER_DETAILS } from '../queries';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const Container = styled.div`
     display: flex;
@@ -71,6 +71,8 @@ class User extends React.Component {
                 <br/>
                 <div>{user.email}</div>
                 <div>{user.websiteUrl}</div>
+                <br/>
+                <Link to='/repositories'>Repositories</Link>
             </Container>
         );
     }
