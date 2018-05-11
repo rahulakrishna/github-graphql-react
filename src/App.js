@@ -4,6 +4,7 @@ import './App.css';
 // Importing components
 import NavBar from './components/Navbar/Navbar';
 import Login from './components/Login';
+import User from "./components/User";
 
 import { Switch,Route } from 'react-router-dom';
 
@@ -15,7 +16,8 @@ class App extends Component {
       <div>
         <NavBar/>
         <Switch>
-          <Route exact path='/login' component={Login}/>
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/user' component={User} />
         </Switch>
       </div>
     );

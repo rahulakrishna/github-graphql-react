@@ -2,11 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { robin, white } from '../../utils/colors';
-import gql from "graphql-tag";
-import { graphql } from 'react-apollo';
+import { graphql, withApollo } from 'react-apollo';
 import { Link } from 'react-router-dom';
 
-
+import { GET_USER_DETAILS } from '../../mutations';
 
 const Bar = styled.div`
     width: 98%;
@@ -26,6 +25,10 @@ const UserName = styled.span`
 //TODO: Load the username only when the user logs in.
 
 class NavBar extends React.Component{
+    logout = () => {
+        localStorage.clear();
+        this.props.client.resetStore()
+    }
     render() {
         const AUTH_TOKEN = localStorage.getItem('AUTH_TOKEN');
         const { userDetails } = this.props;
@@ -48,7 +51,7 @@ class NavBar extends React.Component{
                     GitHub
                     <UserName>
                         {userDetails.viewer.login?
-                            `Logged in as ${userDetails.viewer.login}`
+                            <div>Logged in as {userDetails.viewer.login} <button onClick={()=>{this.logout()}}>Log Out</button></div>
                         :
                             'Sign In'
                         }
@@ -58,13 +61,6 @@ class NavBar extends React.Component{
     }
 }
 
-export const GET_USER_DETAILS = gql`
-    query getUserDetails {
-        viewer {
-            id
-            login
-        }
-    }
-`;
 
-export default graphql(GET_USER_DETAILS,{name:'userDetails'})(NavBar);
+
+export default withApollo(graphql(GET_USER_DETAILS,{name:'userDetails'})(NavBar));

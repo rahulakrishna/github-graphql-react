@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { GET_USER_DETAILS } from '../components/Navbar/Navbar';
+import { GET_USER_DETAILS } from '../mutations';
 import { withApollo } from 'react-apollo';
 
 import { fuzzypeacock, white } from '../utils/colors';
+
+import { Redirect } from 'react-router-dom';
 
 const LoginContainer = styled.div`
     display: flex;
@@ -41,10 +43,15 @@ const Button = styled.button`
 
 class Login extends React.Component {
     state = {
-        token:''
+        token:'',
+        redirectToUser:false
     };
     componentDidMount() {
-        console.log(this.props);
+        if(localStorage.getItem('AUTH_TOKEN')) {
+            this.setState({
+                redirectToUser:true
+            })
+        }
     }
     submitToken = () => {
         localStorage.setItem('AUTH_TOKEN',this.state.token);
@@ -58,6 +65,9 @@ class Login extends React.Component {
         console.log(this.props.client);
         console.log(this.props.client.queryManager.queryStore.store);
         this.props.client.resetStore()
+        this.setState({
+            redirectToUser:true
+        })
     };
     render() {
         return(
@@ -72,6 +82,7 @@ class Login extends React.Component {
                     >Submit</Button>
                 </LoginCard>
                 <br/>
+                {this.state.redirectToUser&&<Redirect to='/user'/>}
             </LoginContainer>
         );
     };
