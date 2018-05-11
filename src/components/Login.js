@@ -55,6 +55,9 @@ class Login extends React.Component {
             query:GET_USER_DETAILS
         });
         console.log(data);
+        console.log(this.props.client);
+        console.log(this.props.client.queryManager.queryStore.store);
+        this.props.client.resetStore()
     };
     render() {
         return(

@@ -23,7 +23,7 @@ const UserName = styled.span`
     flex-basis:90%;
 `;
 
-//TODO: Load the username whenever the user logs in.
+//TODO: Load the username only when the user logs in.
 
 class NavBar extends React.Component{
     render() {
