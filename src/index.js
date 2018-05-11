@@ -18,14 +18,14 @@ import { BrowserRouter } from 'react-router-dom';
 const httpLink = new HttpLink({ uri:'https://api.github.com/graphql' });
 
 const middleWareAuthLink = new ApolloLink((operation,forward) => {
-  const token = process.env.REACT_APP_GITHUB_TOKEN;
+  const token = localStorage.getItem('AUTH_TOKEN');
   operation.setContext({
     headers: {
       Authorization: `bearer ${token}`
     }
   });
   return forward(operation);
-})
+});
 
 const httpLinkWithAuthToken = middleWareAuthLink.concat(httpLink);
 
