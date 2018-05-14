@@ -5,7 +5,7 @@ import './App.css';
 import NavBar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import User from "./components/User";
-import Repositories from "./components/Repositories";
+import Repositories from "./components/Repositories/Repositories";
 
 import { Switch,Route } from 'react-router-dom';
 
