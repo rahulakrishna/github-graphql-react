@@ -43,14 +43,18 @@ class Repository extends React.Component {
                 <Mutation
                   mutation = {ACCEPT_TOPIC}
                   update = {(cache, { data: addTopic }) => {
-                    const repository = cache.readQuery({ query:GET_REPO_DETAILS, variables:{owner:this.props.match.params.user, name: this.props.match.params.repo} });
+                    let repository = cache.readQuery({ query:GET_REPO_DETAILS, variables:{owner:this.props.match.params.user, name: this.props.match.params.repo} });
                     console.log(repository);
                     console.log(addTopic);
                     console.log(addTopic.acceptTopicSuggestion.topic);
                     const topics = repository.repository.repositoryTopics.nodes;
-                    repository.repository.repositoryTopics.nodes.concat({topic: addTopic.acceptTopicSuggestion.topic});
+                    console.log(topics);
+                    //repository.repository.repositoryTopics.nodes = repository.repository.repositoryTopics.nodes.concat(addTopic.acceptTopicSuggestion.topic);
                     console.log(repository);
-                    cache.writeQuery({ query: GET_REPO_DETAILS, data:{repository}});
+                    const dataToWrite = repository.repository;
+                    repository.repository.repositoryTopics.nodes = repository.repository.repositoryTopics.nodes.concat({topic:addTopic.acceptTopicSuggestion.topic,"__typename":"RepositoryTopic"});
+                    console.log(repository);
+                    cache.writeQuery({ query: GET_REPO_DETAILS, data: repository });
                   }}
                 >
                   {(addTopic, { topicMutationData }) => {
