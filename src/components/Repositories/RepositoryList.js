@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql} from "react-apollo/index";
 import { GET_USER_DETAILS } from '../../queries';
 import { ListContainer, ListItem, SubTitle, ButtonsContainer, Button } from '../styled';
+import { Link } from 'react-router-dom';
 
 
 class RepositoryList extends React.Component{
@@ -21,10 +22,11 @@ class RepositoryList extends React.Component{
                 </ButtonsContainer>
                 <ListContainer>
                     {repositories.viewer.repositories.edges.map((repo) => (
-                        <ListItem key={repo.node.id} href={`/repository/${repositories.viewer.login}/${repo.node.name}`}>
-                            {repo.node.name}
-                            <SubTitle>{repo.node.primaryLanguage?repo.node.primaryLanguage.name:'null'}</SubTitle>
-                        </ListItem>
+                      <ListItem key={repo.node.id} to={`/repository/${repo.node.owner.login}/${repo.node.name}`}>
+                        {repo.node.name}
+                        {console.log(repo.node)}
+                        <SubTitle>{repo.node.primaryLanguage?repo.node.primaryLanguage.name:'null'}</SubTitle>
+                      </ListItem>
                     ))}
                 </ListContainer>
             </div>

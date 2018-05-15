@@ -49,6 +49,10 @@ export const GET_USER_DETAILS = gql`
                  node {
                   id
                   name
+                  owner {
+                    id
+                    login
+                  }
                   isPrivate
                   primaryLanguage {
                     id

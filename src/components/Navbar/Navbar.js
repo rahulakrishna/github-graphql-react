@@ -51,7 +51,7 @@ class NavBar extends React.Component{
                     GitHub
                     <UserName>
                         {userDetails.viewer.login?
-                            <div>Logged in as {userDetails.viewer.login} <button onClick={()=>{this.logout()}}>Log Out</button></div>
+                            <div>Logged in as <Link to='/user'>{userDetails.viewer.login}</Link> <button onClick={()=>{this.logout()}}>Log Out</button></div>
                         :
                             'Sign In'
                         }

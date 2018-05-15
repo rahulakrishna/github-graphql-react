@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { wearyblack, somethingdifferent, robin, fuzzypeacock, white } from '../../utils/colors';
 
+import { Link } from 'react-router-dom';
+
 export const Title = styled.h1`
     color: ${wearyblack}
 `;
@@ -18,7 +20,7 @@ export const ListContainer  = styled.div`
   flex-direction: column;
 `;
 
-export const ListItem = styled.a`
+export const ListItem = styled(Link)`
   font-size: 36px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 10px;
@@ -57,5 +59,5 @@ export const BreadCrumb = styled.span`
 `;
 
 export const Input = styled.input`
-  
+
 `;

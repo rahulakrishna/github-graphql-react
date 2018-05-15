@@ -9,10 +9,6 @@ class Repository extends React.Component {
   state = {
     label: ''
   };
-  addLabel = (e) => {
-    e.preventDefault();
-    console.log(this.state.label);
-  };
   render() {
     return(
       <div>
@@ -55,6 +51,9 @@ class Repository extends React.Component {
                     repository.repository.repositoryTopics.nodes = repository.repository.repositoryTopics.nodes.concat({topic:addTopic.acceptTopicSuggestion.topic,"__typename":"RepositoryTopic"});
                     console.log(repository);
                     cache.writeQuery({ query: GET_REPO_DETAILS, data: repository });
+                    this.setState({
+                      label: ''
+                    });
                   }}
                 >
                   {(addTopic, { topicMutationData }) => {
@@ -64,11 +63,8 @@ class Repository extends React.Component {
                         <form onSubmit={(e)=>{
                           e.preventDefault();
                           addTopic({ variables: { repositoryId: data.repository.id, name: this.state.label } });
-                          this.setState({
-                            label: ''
-                          });
                         }}>
-                          <Input placeholder="Add a New Label" onChange={(e)=>{this.setState({ label: e.target.value })}}/>
+                          <Input placeholder="Add a New Label" onChange={(e)=>{this.setState({ label: e.target.value })}} value = {this.state.label}/>
                         </form>
                       </div>
                     );
