@@ -21,7 +21,7 @@ class RepositoryList extends React.Component{
                 </ButtonsContainer>
                 <ListContainer>
                     {repositories.viewer.repositories.edges.map((repo) => (
-                        <ListItem key={repo.node.id}>
+                        <ListItem key={repo.node.id} href={`/repository/${repositories.viewer.login}/${repo.node.name}`}>
                             {repo.node.name}
                             <SubTitle>{repo.node.primaryLanguage?repo.node.primaryLanguage.name:'null'}</SubTitle>
                         </ListItem>

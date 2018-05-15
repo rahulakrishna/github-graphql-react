@@ -6,6 +6,7 @@ import NavBar from './components/Navbar/Navbar';
 import Login from './components/Login';
 import User from "./components/User";
 import Repositories from "./components/Repositories/Repositories";
+import Repository from "./components/Repository";
 
 import { Switch,Route } from 'react-router-dom';
 
@@ -20,7 +21,8 @@ class App extends Component {
             <Route exact path='/login' component={Login} />
 
             <Route exact path='/user' component={User} />
-            <Route exact path='/repositories' component={Repositories}/>
+            <Route exact path='/repositories/:pageNumber' component={Repositories} />
+            <Route exact path='/repository/:user/:repo' component={Repository} />
         </Switch>
       </div>
     );

@@ -18,7 +18,7 @@ const Image = styled.img`
 `;
 
 const Title = styled.h1`
-    
+
 `;
 
 const Counts = styled.div`
@@ -34,7 +34,7 @@ const Count = styled.div`
 `;
 
 const Number  = styled.h3`
-    
+
 `;
 
 class User extends React.Component {
@@ -72,7 +72,7 @@ class User extends React.Component {
                 <div>{user.email}</div>
                 <div>{user.websiteUrl}</div>
                 <br/>
-                <Link to='/repositories'>Repositories</Link>
+                <Link to='/repositories/1'>Repositories</Link>
             </Container>
         );
     }

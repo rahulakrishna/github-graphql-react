@@ -1,5 +1,23 @@
 import gql from "graphql-tag";
 
+export const GET_REPO_DETAILS = gql`
+    query getRepoDetails($name: String!, $owner: String!) {
+      repository(name: $name, owner: $owner) {
+        id
+        description
+        name
+        repositoryTopics(first: 10) {
+          nodes {
+            topic {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+`;
+
 export const GET_USER_DETAILS = gql`
     query getUserDetails($first: Int, $last: Int, $after: String, $before: String) {
         viewer {

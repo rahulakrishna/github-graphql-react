@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { wearyblack, somethingdifferent } from '../../utils/colors';
+import { wearyblack, somethingdifferent, robin, fuzzypeacock, white } from '../../utils/colors';
 
 export const Title = styled.h1`
     color: ${wearyblack}
@@ -15,7 +15,7 @@ export const CenteredContainer = styled.div`
 
 export const ListContainer  = styled.div`
   display: flex;
-  flex-direction: column;    
+  flex-direction: column;
 `;
 
 export const ListItem = styled.a`
@@ -27,7 +27,7 @@ export const ListItem = styled.a`
 `;
 
 export const SubTitle = styled.span`
-  font-size: 12px;  
+  font-size: 12px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -40,4 +40,22 @@ export const Button = styled.button`
   flex-basis: 50%;
   padding:10px;
   font-size:16px;
+`;
+
+export const BreadCrumbsContainer = styled.div`
+  display: flex;
+`;
+
+const colors = [wearyblack, somethingdifferent, robin, fuzzypeacock];
+
+export const BreadCrumb = styled.span`
+  padding:10px;
+  margin: 2px;
+  background: ${colors[Math.floor(Math.random() * colors.length)]};
+  color: ${white};
+  flex-shrink: 20%;
+`;
+
+export const Input = styled.input`
+  
 `;
