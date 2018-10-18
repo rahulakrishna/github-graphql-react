@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql} from "react-apollo/index";
+import {graphql} from "react-apollo";
 import { GET_USER_DETAILS } from '../../queries';
 import { ListContainer, ListItem, SubTitle, ButtonsContainer, Button } from '../styled';
 import { Link } from 'react-router-dom';

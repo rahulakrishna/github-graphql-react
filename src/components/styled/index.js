@@ -25,7 +25,8 @@ export const ListItem = styled(Link)`
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 10px;
   padding: 10px;
-  color: ${somethingdifferent}
+  color: ${somethingdifferent};
+  text-decoration: none;
 `;
 
 export const SubTitle = styled.span`
@@ -60,4 +61,9 @@ export const BreadCrumb = styled.span`
 
 export const Input = styled.input`
 
+`;
+
+export const Background = styled.div`
+  background:${white};
+  min-height: 100vh;
 `;

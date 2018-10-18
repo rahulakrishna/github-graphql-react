@@ -41,10 +41,10 @@ const client = new ApolloClient({
 // Initialisation ends.
 
 ReactDOM.render(
-      <BrowserRouter>
-        <ApolloProvider client={client}>
+    <BrowserRouter>
+      <ApolloProvider client={client}>
           <App />
-        </ApolloProvider>
-      </BrowserRouter>
+      </ApolloProvider>
+    </BrowserRouter>
     , document.getElementById('root'));
 registerServiceWorker();
